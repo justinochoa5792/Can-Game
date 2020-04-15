@@ -1,5 +1,25 @@
 canvas{
-    border: solid red;
-    background-color: black;
+    border: solid white;
+    background-color:black;
     position:fixed;
+}
+/* #startBtn{
+    position: absolute;
+    top:400px;
+    left:250px;
+    width:200px;
+    height:50px;
+    font-size: 20px;
+}  */
+#directions {
+    color: white;
+}
+#result {
+    color: white;
+}
+#life {
+color: white;
+}
+html{
+    background-image: url("images/Space-PNG-Pic.gif");
 }
