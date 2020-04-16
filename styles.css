@@ -8,7 +8,7 @@ canvas{
 #result {
     color: white;
 }
-#life {
+#life, #level {
 color: white;
 }
 body{

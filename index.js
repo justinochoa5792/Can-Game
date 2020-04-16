@@ -1,8 +1,8 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-var score = 0;
+var score = 1;
 var lives = 3;
-var level = 1;
+var level = 0;
 var enemyinter=2000;
 var animationId = null;
 canvas.width = window.innerWidth;
@@ -31,7 +31,7 @@ function drawAliensBullets() {
     if (aBull.y > canvas.height) {
       aliensBullets.splice(j, 1); //get rids of bullet when past screen
     }
-    ctx.fillRect(aBull.x, (aBull.y += 5), aBull.w, aBull.h); //optional chaining
+    ctx.fillRect(aBull.x, aBull.y += 5, aBull.w, aBull.h); //optional chaining
   });
 }
 let aliens = [];
@@ -165,14 +165,33 @@ function drawBullets() {
 function addScore() {
   document.querySelector("#result").innerText = `Score : ${score}`;
 }
+
+
+let backgrounds = [
+  "url('images/images.jpg')",
+  "url('images/download.jpg')",
+  "url('images/download-1.jpg')",
+  "url('images/download-2.jpg')",
+  "url('images/images.jpg')",
+  "url('images/download.jpg')",
+  "url('images/download-1.jpg')",
+  "url('images/download-2.jpg')",
+  "url('images/images.jpg')",
+  "url('images/download.jpg')",
+  "url('images/download-1.jpg')",
+  "url('images/download-2.jpg')",  
+]
+
+
 function gameOver() {
-  if (score === 1) {
+  if (score % 3 === 0 ) {
+    console.log('next level', score, level)
     //alert ("You Won!");
-    cancelAnimationFrame(animationId);
-     level++;
-    newLevel();
-    console.log(enemyinter+"func gameover")
-    document.body.style.backgroundImage = "url('images/images.jpg')";
+    score = 1; 
+   // cancelAnimationFrame(animationId);
+   level++;
+    document.body.style.backgroundImage = backgrounds[level];
+
   } else {
     if (lives === 0) {
       alert("Game Over!");
@@ -180,11 +199,12 @@ function gameOver() {
       cancelAnimationFrame(animationId);
     }
     document.querySelector("#life").innerText = `Lives : ${lives}`;
+    document.querySelector("#level").innerText = `Level : ${level}`;
   }
 }
- function newLevel(){
-  console.log(enemyinter+"func newlevel")
+
 function animationLoop() {
+  console.log("hi")
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   animationId = requestAnimationFrame(animationLoop);
   drawShooter();
@@ -196,6 +216,5 @@ function animationLoop() {
   addScore();
   gameOver();
 }
+console.log('adfsd')
 animationLoop();
- }
- newLevel();
