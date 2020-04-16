@@ -1,25 +1,18 @@
 canvas{
-    border: solid white;
-    background-color:black;
     position:fixed;
 }
-/* #startBtn{
-    position: absolute;
-    top:400px;
-    left:250px;
-    width:200px;
-    height:50px;
-    font-size: 20px;
-}  */
-#directions {
+/* #directions {
     color: white;
-}
+    position:fixed;
+} */
 #result {
     color: white;
 }
 #life {
 color: white;
 }
-html{
+body{
     background-image: url("images/Space-PNG-Pic.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
 }

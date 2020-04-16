@@ -1,21 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Project-Take2</title>
- <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <h3><span id="result"></span>
-    <span id= "life">
-    </span>
-    </h3>
-     <div id="directions">
-        <h4>Directions:<br> Use Left arrow to move left <br> Use Right arrow to move right <br>
-    Use Up arrow to shoot aliens</h4> 
-    </div> 
-    <canvas id='canvas'></canvas>
-    <!-- <button type="button" id="startBtn" onclick="gameStart()">Start</button> -->
-        <script type= "text/javascript" src="index.js"></script>
-      </body>
-    </html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    button{
+color:black;
+display: grid;
+margin-left: 500px;
+}
+h1{
+    display:grid;
+    justify-content: center;
+}
+#tagline {
+    color:white;
+    display:grid;
+    justify-content:center;
+    align-content: center;
+    font-size: 30px;
+}
+#directions {
+    color: white;
+display:grid;
+justify-content: center;
+align-content: center;
+font-size: 20px;
+margin-top:160px;
+}
+</style>
+<body>
+    <a href="game.html">
+        <div id= "tagline">
+            <h1>Space Invaders!</h1>
+            <h3>Save the planet! <br> Destory enemy ships! </h3>
+        </div>
+        <div id="directions">
+            <h4>Directions:<br> Use Left arrow to move left <br> Use Right arrow to move right <br>
+        Use Up arrow to shoot aliens</h4> 
+        </div> 
+    <button>
+<h1>Push to Enter</h1>
+    </button></a>
+<script type= "text/javascript" src="index.js"></script>  
+</body>
+</html>
