@@ -2,7 +2,7 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var score = 1;
 var lives = 3;
-var level = 0;
+var level = 1;
 var enemyinter=2000;
 var animationId = null;
 canvas.width = window.innerWidth;
@@ -27,11 +27,11 @@ function drawAlien() {
 }
 function drawAliensBullets() {
   ctx.fillStyle = "red";
-  aliensBullets.forEach((aBull, j) => {
+  aliensBullets.forEach((aBull,j) => {
     if (aBull.y > canvas.height) {
       aliensBullets.splice(j, 1); //get rids of bullet when past screen
     }
-    ctx.fillRect(aBull.x, aBull.y += 5, aBull.w, aBull.h); //optional chaining
+    ctx.fillRect(aBull.x, aBull.y+=5, aBull.w, aBull.h);
   });
 }
 let aliens = [];
@@ -56,7 +56,7 @@ setInterval(function () {
     },
   };
   aliens.push(alien);
-}, enemyinter); //creating aliens every 2 seconds
+}, (enemyinter*level)); //creating aliens every 2 seconds
 setInterval(() => {
   // creating bullet every 3 seconds
   if (aliens.length !== 0) {
@@ -73,7 +73,7 @@ setInterval(() => {
       aliensBullets.push(bullet);
     }
   }
-}, 3000); //shoots every 3 seconds.
+},3000); //shoots every 3 seconds.
 
 // //draw the shooter
 var shooterImage = new Image();
@@ -172,20 +172,12 @@ let backgrounds = [
   "url('images/download.jpg')",
   "url('images/download-1.jpg')",
   "url('images/download-2.jpg')",
-  "url('images/images.jpg')",
-  "url('images/download.jpg')",
-  "url('images/download-1.jpg')",
-  "url('images/download-2.jpg')",
-  "url('images/images.jpg')",
-  "url('images/download.jpg')",
-  "url('images/download-1.jpg')",
-  "url('images/download-2.jpg')",  
+  "url('images/download-3.jpg')",  
 ]
 
 
 function gameOver() {
   if (score % 3 === 0 ) {
-    console.log('next level', score, level)
     //alert ("You Won!");
     score = 1; 
    // cancelAnimationFrame(animationId);
@@ -204,7 +196,6 @@ function gameOver() {
 }
 
 function animationLoop() {
-  console.log("hi")
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   animationId = requestAnimationFrame(animationLoop);
   drawShooter();
@@ -216,5 +207,4 @@ function animationLoop() {
   addScore();
   gameOver();
 }
-console.log('adfsd')
 animationLoop();
