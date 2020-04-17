@@ -31,7 +31,7 @@ function drawAliensBullets() {
     if (aBull.y > canvas.height) {
       aliensBullets.splice(j, 1); //get rids of bullet when past screen
     }
-    ctx.fillRect(aBull.x, aBull.y+=5, aBull.w, aBull.h);
+    ctx.fillRect(aBull.x, aBull.y +=5, aBull.w, aBull.h);
   });
 }
 let aliens = [];
@@ -52,11 +52,11 @@ setInterval(function () {
 
         let bullet = { x: this.x + this.w / 2, y: this.y, w: 3, h: 7 };
         aliensBullets.push(bullet);
-      }, 3000);
+      }, 1000);
     },
   };
   aliens.push(alien);
-}, (enemyinter*level)); //creating aliens every 2 seconds
+}, (enemyinter)); //creating aliens every 2 seconds
 setInterval(() => {
   // creating bullet every 3 seconds
   if (aliens.length !== 0) {
@@ -73,7 +73,7 @@ setInterval(() => {
       aliensBullets.push(bullet);
     }
   }
-},3000); //shoots every 3 seconds.
+},1000); //shoots every 2 seconds.
 
 // //draw the shooter
 var shooterImage = new Image();
@@ -173,7 +173,8 @@ let backgrounds = [
   "url('images/download-1.jpg')",
   "url('images/download-2.jpg')",
   "url('images/download-3.jpg')",  
-]
+  "url('images/download-4.jpg')",
+];
 
 
 function gameOver() {
